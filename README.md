@@ -16,6 +16,11 @@ An "working" command line to manage an Word API. Made to learn [Click](https://g
 ## Run
 
 ```sh
+# Install deps
+python3.8 -m pipenv shell
+pipenv sync -d
+
+# Start using
 ./words.py --help
 # ./words.py login -u <username>
 # ./words.py list
