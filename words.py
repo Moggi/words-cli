@@ -1,11 +1,8 @@
 #!/usr/bin/env python3
 
-from src import commands, configure_env_var
-
-_BASE_URL = 'BASE_URL'
-BASE_URL = 'https://you.pretty/api'
-
+from src import settings, commands
 
 if __name__ == '__main__':
-    configure_env_var(_BASE_URL, BASE_URL)
+    # @FIXME: remove dir(settings) without flake8 warning
+    dir(settings)
     commands.cli()

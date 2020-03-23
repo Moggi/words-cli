@@ -11,8 +11,8 @@ from . import retrieve_env_var, configure_env_var
 
 _BASE_URL = 'BASE_URL'
 _ACCESS_TOKEN = 'ACCESS_TOKEN'
-BASE_FILE_PATH = 'words_definitions/'
-RANGE_LIMIT = 200
+BASE_FILE_PATH = retrieve_env_var('BASE_FILE_PATH')
+RANGE_LIMIT = retrieve_env_var('RANGE_LIMIT')
 
 
 @click.command('bulk_upload')
@@ -86,9 +86,11 @@ async def get_words_from_dir(base_path: str) -> Set:
 
 
 async def retrieve_word_data(word) -> str:
-    """Fetch ."""
+    """Fetch word data from its local file."""
+    data = None
     async with aiofiles.open(BASE_FILE_PATH+word) as file:
-        return await file.read()
+        data = await file.read()
+    return data
 
 
 async def send_one(word: str, session: aiohttp.ClientSession) -> None:
@@ -113,7 +115,7 @@ async def send_one(word: str, session: aiohttp.ClientSession) -> None:
 
 async def bulk_fetch_and_write(words: List) -> None:
     """Fetch and write concurrently for multiple words."""
-    conn = aiohttp.BaseConnector(limit=5, limit_per_host=5)
+    conn = aiohttp.TCPConnector(limit=20)
     async with aiohttp.ClientSession(connector=conn) as session:
         tasks = []
         for word in words:
