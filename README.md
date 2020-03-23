@@ -10,8 +10,7 @@ An "working" command line to manage an Word API. Made to learn [Click](https://g
 
 ## Configure
 
-- Open words.py and change the `BASE_URL` variable to match your api
-- Then change `BASE_URL` and `HEADERS` on words_searcher.py to match your foreign api
+- Copy `.env.bkp` to `.env` and change the variables there.
 
 ## Run
 
