@@ -1,6 +1,7 @@
 .env
 words_definitions/*
 words_with_error/*
+words_to_search.txt
 
 
 # Created by https://www.gitignore.io/api/python,visualstudiocode

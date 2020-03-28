@@ -7,6 +7,7 @@ from .words_up import words_up
 from .words_list import words_list
 from .bulk_up import bulk_upload
 from .dumps import dumps_environment
+from .words_searcher import words_searcher
 
 _VERBOSE = 'VERBOSE'
 
@@ -28,3 +29,4 @@ cli.add_command(words_list)
 cli.add_command(words_up)
 cli.add_command(bulk_upload)
 cli.add_command(dumps_environment)
+cli.add_command(words_searcher)

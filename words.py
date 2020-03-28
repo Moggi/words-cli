@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 
-from src import settings, commands
+from dotenv import load_dotenv
+
+load_dotenv(override=True)
 
 if __name__ == '__main__':
-    # @FIXME: remove dir(settings) without flake8 warning
-    dir(settings)
+    from src import commands
     commands.cli()
