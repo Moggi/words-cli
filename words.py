@@ -2,7 +2,7 @@
 
 from dotenv import load_dotenv
 
-load_dotenv(override=True)
+load_dotenv()
 
 if __name__ == '__main__':
     from src import commands
