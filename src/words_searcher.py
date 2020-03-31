@@ -44,7 +44,6 @@ async def main():
     task1 = asyncio.create_task(get_words_from_file(WORD_LIST_FILE_NAME))
     task2 = asyncio.create_task(get_words_from_dir(BASE_FILE_PATH))
     task3 = asyncio.create_task(get_words_from_dir(BASE_ERROR_PATH))
-    # @TODO: Improve this tasks time. It is taking too long.
     await asyncio.wait([task1, task2, task3])
     t1 = time.time()
 
@@ -63,8 +62,8 @@ async def main():
             bulk_fetch_and_write(words=words[:RANGE_LIMIT]), timeout=60*60)
 
     tn = time.time()
-    print('Time on first task: {:.2f}s'.format(t1-t0))
-    print('Time on second task: {:.2f}s'.format(tn-t1))
+    print('Time on listing tasks: {:.2f}s'.format(t1-t0))
+    print('Time on downloading task: {:.2f}s'.format(tn-t1))
     print('Total time spent: {:.2f}s'.format(tn-t0))
 
 

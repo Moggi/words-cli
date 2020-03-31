@@ -5,7 +5,7 @@ from dotenv import dotenv_values
 
 
 @click.command('dumps')
-@click.option('--full', default=False, is_flag=True)
+@click.option('--full', is_flag=True)
 @click.pass_context
 def dumps_environment(ctx, full):
     """Dumps environment variables and exit."""

@@ -7,7 +7,7 @@ from . import retrieve_env_var, configure_env_var
 
 _BASE_URL = 'BASE_URL'
 _ACCESS_TOKEN = 'ACCESS_TOKEN'
-BASE_FILE_PATH = 'words_definitions/'
+BASE_FILE_PATH = retrieve_env_var('BASE_FILE_PATH')
 
 
 @click.command('upload')
